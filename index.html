@@ -3,147 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Raturi - CV</title>
+    <title>Himanshu Raturi - Curriculum Vitae</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
-        h1 { font-size: 2.5em; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; margin-bottom: 10px; }
-        h2 { color: #2c3e50; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 30px; }
-        h3 { margin-bottom: 5px; color: #34495e; }
-        .header-info p { margin: 5px 0; }
-        .header-info a { color: #2980b9; text-decoration: none; }
-        .header-info a:hover { text-decoration: underline; }
-        .date-location { font-style: italic; color: #7f8c8d; font-size: 0.9em; margin-bottom: 10px; }
-        ul { margin-top: 5px; }
-        li { margin-bottom: 8px; }
-        .grid-section { display: flex; flex-wrap: wrap; gap: 40px; }
-        .grid-col { flex: 1; min-width: 300px; }
+        :root {
+            --primary-bg: #0f172a;
+            --primary-text: #f8fafc;
+            --secondary-bg: #ffffff;
+            --secondary-text: #334155;
+            --accent-color: #3b82f6;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--secondary-text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .resume-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: flex;
+            overflow: hidden;
+            flex-direction: row;
+        }
+
+        /* Left Sidebar Styling */
+        .sidebar {
+            width: 35%;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            padding: 3rem 2rem;
+        }
+
+        .sidebar h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .sidebar .subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .contact-info i {
+            width: 25px;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        .sidebar-section {
+            margin-bottom: 3rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-text);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .coursework-list {
+            list-style: none;
+        }
+        
+        .coursework-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .coursework-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* Right Main Content Styling */
+        .main-content {
+            width: 65%;
+            padding: 3rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-bg);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .item-block {
+            margin-bottom: 2rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-bg);
+        }
+
+        .item-subtitle {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 600;
+            background: #f1f5f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .item-details {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .item-details li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .item-details li::before {
+            content: "\f105";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .resume-container {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+                padding: 2rem 1.5rem;
+            }
+            .item-header {
+                flex-direction: column;
+            }
+            .item-date {
+                margin-top: 0.5rem;
+                align-self: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Himanshu Raturi[span_0](start_span)[span_0](end_span)</h1>
-        <div class="header-info">
-            <p>
-                <a href="mailto:raturi.himanshu.rf4@naist.ac.jp">raturi.himanshu.rf4@naist.ac.jp</a>[span_1](start_span)[span_1](end_span) |
-                <a href="mailto:himanshurishikesh731@gmail.com">himanshurishikesh731@gmail.com</a>[span_2](start_span)[span_2](end_span) |
-                (+81) 80-4257-2399[span_3](start_span)[span_3](end_span)
-            </p>
-            <p>
-                <a href="https://linkedin.com/in/himanshuraturi">linkedin.com/in/himanshuraturi</a>[span_4](start_span)[span_4](end_span) |
-                <a href="https://github.com/himanshu-raturi">github.com/himanshu-raturi</a>[span_5](start_span)[span_5](end_span)
-            </p>
-            <p><em>Last Updated on 15th October 2026[span_6](start_span)[span_6](end_span)</em></p>
-        </div>
-    </header>
 
-    <section>
-        <h2>Education[span_7](start_span)[span_7](end_span)</h2>
-        
-        <h3>Nara Institute of Science and Technology[span_8](start_span)[span_8](end_span)</h3>
-        <p><strong>Doctoral Candidate in Information Science</strong>, Mathematical Informatics Lab[span_9](start_span)[span_9](end_span)</p>
-        <p class="date-location">Grad. 2029 | Nara, Japan[span_10](start_span)[span_10](end_span)</p>
+    <div class="resume-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <h1>Himanshu Raturi</h1>
+            <p class="subtitle">Information Science & Computer Vision</p>
 
-        <h3>Nara Institute of Science and Technology[span_11](start_span)[span_11](end_span)</h3>
-        <p><strong>M.S. in Information Science</strong>, Mathematical Informatics Lab[span_12](start_span)[span_12](end_span)</p>
-        <p class="date-location">Grad. 2026 | Nara, Japan[span_13](start_span)[span_13](end_span)</p>
-
-        <h3>Himalayan School of Science & Technology[span_14](start_span)[span_14](end_span)</h3>
-        <p><strong>B.Tech in Computer Science</strong>[span_15](start_span)[span_15](end_span)</p>
-        <p class="date-location">Grad. 2020 | Dehradun, India[span_16](start_span)[span_16](end_span)</p>
-    </section>
-
-    <section>
-        <h2>Experience[span_17](start_span)[span_17](end_span)</h2>
-
-        <h3>University of Trento | Incoming Erasmus+ Scholar[span_18](start_span)[span_18](end_span)</h3>
-        <p class="date-location">Apr 2026 - Present | Trento, Italy[span_19](start_span)[span_19](end_span)</p>
-        <ul>
-            <li>Selected for the Erasmus+ International Credit Mobility (ICM) program under the supervision of Prof. Nicu Sebe and Prof. Paolo Rota.[span_20](start_span)[span_20](end_span)</li>
-            <li>Conducted advanced computer vision and machine learning research focused on multi-object tracking and visual analysis in crowded environments.[span_21](start_span)[span_21](end_span)</li>
-        </ul>
-
-        <h3>Kyoto University | Research Team Member[span_22](start_span)[span_22](end_span)</h3>
-        <p class="date-location">July 2025 - Present | Kyoto, Japan[span_23](start_span)[span_23](end_span)</p>
-        <ul>
-            <li>Member of the Mobility Research Group at the Graduate School of Informatics.[span_24](start_span)[span_24](end_span)</li>
-            <li>Collaborating on mobility analysis and mathematical modeling projects.[span_25](start_span)[span_25](end_span)</li>
-        </ul>
-
-        <h3>Internshala | Summer Trainee[span_26](start_span)[span_26](end_span)</h3>
-        <p class="date-location">July 2019 | Remote/India[span_27](start_span)[span_27](end_span)</p>
-        <ul>
-            <li>Developed desktop applications using Python and the PyQt framework.[span_28](start_span)[span_28](end_span)</li>
-            <li>Implemented backend functionality using SQLite databases for efficient data management.[span_29](start_span)[span_29](end_span)</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Projects[span_30](start_span)[span_30](end_span)</h2>
-
-        <h3>Real-Time Tracking of Individuals in Crowded Environments | Research Project, NAIST[span_31](start_span)[span_31](end_span)</h3>
-        <ul>
-            <li>Developing a tracking pipeline combining YOLOv8 (detection), MMPose (pose estimation), and ViT (ReID).[span_32](start_span)[span_32](end_span)</li>
-            <li>Focused on improving trajectory prediction accuracy in occluded and crowded scenes.[span_33](start_span)[span_33](end_span)</li>
-        </ul>
-
-        <h3>Shopping Assistant Chatbot | Academic Project[span_34](start_span)[span_34](end_span)</h3>
-        <p class="date-location">June 2020[span_35](start_span)[span_35](end_span)</p>
-        <ul>
-            <li>Built a conversational agent for personal shopping using Dialogflow and Django.[span_36](start_span)[span_36](end_span)</li>
-            <li>Integrated a recommender system to suggest products based on user preferences.[span_37](start_span)[span_37](end_span)</li>
-            <li>Deployed the full stack application on Heroku.[span_38](start_span)[span_38](end_span)</li>
-        </ul>
-
-        <h3>Fantasy Cricket Platform | Full Stack Development[span_39](start_span)[span_39](end_span)</h3>
-        <p class="date-location">July 2019[span_40](start_span)[span_40](end_span)</p>
-        <ul>
-            <li>Developed an online fantasy sports game where users draft virtual teams based on real-world player statistics.[span_41](start_span)[span_41](end_span)</li>
-            <li>Implemented ranking algorithms to calculate user scores based on live match performance.[span_42](start_span)[span_42](end_span)</li>
-        </ul>
-
-        <h3>YouTube Media Automation | Python Automation[span_43](start_span)[span_43](end_span)</h3>
-        <p class="date-location">Aug 2019 - Apr 2021[span_44](start_span)[span_44](end_span)</p>
-        <ul>
-            <li>Created a desktop application and subsequent bot to automate the extraction of audio (MP3) from YouTube videos.[span_45](start_span)[span_45](end_span)</li>
-            <li>Focused on high-quality conversion and streamlined user experience.[span_46](start_span)[span_46](end_span)</li>
-        </ul>
-    </section>
-
-    <div class="grid-section">
-        <section class="grid-col">
-            <h2>Skills[span_47](start_span)[span_47](end_span)</h2>
-            <h3>Research Areas[span_48](start_span)[span_48](end_span)</h3>
-            <ul>
-                <li>Computer Vision, Deep Learning[span_49](start_span)[span_49](end_span)</li>
-                <li>Pedestrian Tracking, Transformers[span_50](start_span)[span_50](end_span)</li>
-                <li>Sentiment Analysis, NLP[span_51](start_span)[span_51](end_span)</li>
+            <ul class="contact-info">
+                <li><i class="fas fa-envelope"></i> <a href="mailto:raturi.himanshu.rf4@naist.ac.jp">raturi.himanshu.rf4@naist.ac.jp</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:himanshurishikesh731@gmail.com">himanshurishikesh731@gmail.com</a></li>
+                <li><i class="fas fa-phone"></i> (+81) 80-4257-2399</li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/himanshuraturi" target="_blank">linkedin.com/in/himanshuraturi</a></li>
+                <li><i class="fab fa-github"></i> <a href="https://github.com/himanshu-raturi" target="_blank">github.com/himanshu-raturi</a></li>
             </ul>
-            <h3>Technology[span_52](start_span)[span_52](end_span)</h3>
-            <p><strong>Proficient:</strong> Python, PyTorch, C++, C, YOLOv8, MMPose, ViT, Django, LaTeX[span_53](start_span)[span_53](end_span)</p>
-            <p><strong>Familiar:</strong> Git, SQLite, Dialogflow[span_54](start_span)[span_54](end_span)</p>
-        </section>
-        
-        <section class="grid-col">
-            <h2>Coursework[span_55](start_span)[span_55](end_span)</h2>
-            <h3>Graduate (NAIST)[span_56](start_span)[span_56](end_span)</h3>
-            <ul>
-                <li>Robot Learning and Control[span_57](start_span)[span_57](end_span)</li>
-                <li>Data Mining[span_58](start_span)[span_58](end_span)</li>
-                <li>Natural Language Processing[span_59](start_span)[span_59](end_span)</li>
-                <li>Social Computing[span_60](start_span)[span_60](end_span)</li>
-                <li>Systems Resource Management[span_61](start_span)[span_61](end_span)</li>
-                <li>Mathematical Models in Biology[span_62](start_span)[span_62](end_span)</li>
-            </ul>
-            <h3>Undergraduate[span_63](start_span)[span_63](end_span)</h3>
-            <ul>
-                <li>Cloud Computing[span_64](start_span)[span_64](end_span)</li>
-                <li>Computer Networks[span_65](start_span)[span_65](end_span)</li>
-                <li>Operating Systems[span_66](start_span)[span_66](end_span)</li>
-                <li>Web Technology[span_67](start_span)[span_67](end_span)</li>
-                <li>Data Structures & Algorithms[span_68](start_span)[span_68](end_span)</li>
-                <li>Database Management Systems[span_69](start_span)[span_69](end_span)</li>
-            </ul>
-        </section>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Education</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.05rem;">Nara Institute of Science and Technology</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">M.S. in Information Science</p>
+                    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 2px;">Grad. 2026 | Nara, Japan</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.05rem;">Himalayan School of Science & Technology</h3>
+                    <p style="color: #cbd5e1; font-size: 0.9rem;">B.Tech in Computer Science</p>
+                    <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 2px;">Grad. 2020 | Dehradun, India</p>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Skills & Tech</h2>
+                <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #cbd5e1;">Research Areas</h3>
+                <div class="skills-container">
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">Pedestrian Tracking</span>
+                    <span class="skill-tag">Transformers</span>
+                    <span class="skill-tag">Sentiment Analysis</span>
+                    <span class="skill-tag">NLP</span>
+                </div>
+                
+                <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; margin-top: 1rem; color: #cbd5e1;">Proficient</h3>
+                <div class="skills-container">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">YOLOv8</span>
+                    <span class="skill-tag">MMPose</span>
+                    <span class="skill-tag">ViT</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">LaTeX</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Coursework</h2>
+                <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #cbd5e1;">Graduate (NAIST)</h3>
+                <ul class="coursework-list" style="margin-bottom: 1rem;">
+                    <li>Robot Learning and Control</li>
+                    <li>Data Mining</li>
+                    <li>Natural Language Processing</li>
+                    <li>Social Computing</li>
+                    <li>Systems Resource Management</li>
+                    <li>Mathematical Models in Biology</li>
+                </ul>
+                <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #cbd5e1;">Undergraduate</h3>
+                <ul class="coursework-list">
+                    <li>Cloud Computing</li>
+                    <li>Computer Networks</li>
+                    <li>Operating Systems</li>
+                    <li>Web Technology</li>
+                    <li>Data Structures & Algorithms</li>
+                    <li>Database Management Systems</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Right Main Content -->
+        <main class="main-content">
+            
+            <section>
+                <h2 class="section-title">Experience</h2>
+                
+                <div class="item-block">
+                    <div class="item-header">
+                        <div>
+                            <h3 class="item-title">University of Trento</h3>
+                            <div class="item-subtitle">Incoming Erasmus+ Scholar</div>
+                        </div>
+                        <div class="item-date">Apr 2026 - Present | Trento, Italy</div>
+                    </div>
+                    <ul class="item-details">
+                        <li>Selected for the Erasmus+ International Credit Mobility (ICM) program under the supervision of Prof. Nicu Sebe and Prof. Paolo Rota.</li>
+                        <li>Conducted advanced computer vision and machine learning research focused on multi-object tracking and visual analysis in crowded environments.</li>
+                    </ul>
+                </div>
+
+                <div class="item-block">
+                    <div class="item-header">
+                        <div>
+                            <h3 class="item-title">Kyoto University</h3>
+                            <div class="item-subtitle">Research Team Member</div>
+                        </div>
+                        <div class="item-date">July 2025 - Present | Kyoto, Japan</div>
+                    </div>
+                    <ul class="item-details">
+                        <li>Member of the Mobility Research Group at the Graduate School of Informatics.</li>
+                        <li>Collaborating on mobility analysis and mathematical modeling projects.</li>
+                    </ul>
+                </div>
+
+                <div class="item-block">
+                    <div class="item-header">
+                        <div>
+                            <h3 class="item-title">Internshala</h3>
+                            <div class="item-subtitle">Summer Trainee</div>
+                        </div>
+                        <div class="item-date">July 2019 | Remote, India</div>
+                    </div>
+                    <ul class="item-details">
+                        <li>Developed desktop applications using Python and the PyQt framework.</li>
+                        <li>Implemented backend functionality using SQLite databases for efficient data management.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section style="margin-top: 3rem;">
+                <h2 class="section-title">Projects</h2>
+
+                <div class="item-block">
+                    <div class="item-header">
+                        <div>
+                            <h3 class="item-title">Real-Time Tracking of Individuals in Crowded Environments</h3>
+                            <div class="item-subtitle">Research Project, NAIST</div>
+                        </div>
+                    </div>
+                    <ul class="item-details">
+                        <li>Developing a tracking pipeline combining YOLOv8 (detection), MMPose (pose estimation), and ViT (ReID).</li>
+                        <li>Focused on improving trajectory prediction accuracy in occluded and crowded scenes.</li>
+                    </ul>
+                </div>
+
+                <div class="item-block">
+                    <div class="item-header">
+                        <div>
+                            <h3 class="item-title">Shopping Assistant Chatbot</h3>
+                            <div class="item-subtitle">Academic Project</div>
+                        </div>
+                        <div class="item-date">June 2020</div>
+                    </div>
+                    <ul class="item-details">
+                        <li>Built a conversational agent for personal shopping using Dialogflow and Django.</li>
+                        <li>Integrated a recommender system to suggest products based on user preferences.</li>
+                        <li>Deployed the full stack application on Heroku.</li>
+                    </ul>
+                </div>
+
+                <div class="item-block">
+                    <div class="item-header">
+                        <div>
+                            <h3 class="item-title">Fantasy Cricket Platform</h3>
+                            <div class="item-subtitle">Full Stack Development</div>
+                        </div>
+                        <div class="item-date">July 2019</div>
+                    </div>
+                    <ul class="item-details">
+                        <li>Developed an online fantasy sports game where users draft virtual teams based on real-world player statistics.</li>
+                        <li>Implemented ranking algorithms to calculate user scores based on live match performance.</li>
+                    </ul>
+                </div>
+
+                <div class="item-block">
+                    <div class="item-header">
+                        <div>
+                            <h3 class="item-title">YouTube Media Automation</h3>
+                            <div class="item-subtitle">Python Automation</div>
+                        </div>
+                        <div class="item-date">Aug 2019 - Apr 2021</div>
+                    </div>
+                    <ul class="item-details">
+                        <li>Created a desktop application and subsequent bot to automate the extraction of audio (MP3) from YouTube videos.</li>
+                        <li>Focused on high-quality conversion and streamlined user experience.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
     </div>
+
 </body>
 </html>
